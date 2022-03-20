@@ -41,7 +41,12 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    //Innitialize gridTable by matching it with its element id "grid" in index.html
+    gridTable=document.getElementById("grid");
+    //Delete the last row in the gridTable
+    gridTable.deleteRow(-1);
+    //Decrement numRows to keep track of the total rows
+    numRows--;
 }
 
 // Remove a column
