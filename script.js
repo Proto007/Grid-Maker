@@ -6,12 +6,16 @@ let gridTable;
 
 // Add a row
 function addR() {
-    //Innitialize a gridTable by matching it with its element id "grid" in index.html
+    //Innitialize gridTable by matching it with its element id "grid" in index.html
     gridTable=document.getElementById("grid");
     //Insert a new row in gridTable
     gridTable.insertRow();
+    // Increment numCols by 1 if there are no existing columns (numCols is 0)
+    if(numCols===0){
+        numCols++;
+    }
     //Insert numcols+1 number of cells in the new row that is created
-    for(let i=0;i<=numCols;i++){
+    for(let i=0;i<numCols;i++){
         gridTable.rows[numRows].insertCell();
     }
     //Increment numRows by 1 to keep track of the total rows
@@ -20,7 +24,19 @@ function addR() {
 
 // Add a column
 function addC() {
-    
+    //Innitialize gridTable by matching it with its element id "grid" in index.html
+    gridTable=document.getElementById("grid");
+    //Insert a new row and increment numRows if there are no existing rows(numRows is 0)
+    if(numRows===0){
+        gridTable.insertRow();
+        numRows++;
+    }
+    //Insert a cell in all rows in the grid
+    for(let i=0;i<numRows;i++){
+        gridTable.rows[i].insertCell();
+    }
+    //Increment numCols by 1 to keep track of the total columns
+    numCols++;
 }
 
 // Remove a row
