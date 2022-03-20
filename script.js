@@ -8,11 +8,11 @@ let gridTable;
 function addR() {
     //Innitialize a gridTable by matching it with its element id "grid" in index.html
     gridTable=document.getElementById("grid");
-    //Set variable row equal to a new row that is inserted in the grid
-    let row=gridTable.insertRow();
-    //Insert numcols+1 number of columns in the new row that is created
+    //Insert a new row in gridTable
+    gridTable.insertRow();
+    //Insert numcols+1 number of cells in the new row that is created
     for(let i=0;i<=numCols;i++){
-        row.insertCell();
+        gridTable.rows[numRows].insertCell();
     }
     //Increment numRows by 1 to keep track of the total rows
     numRows++;
@@ -20,7 +20,7 @@ function addR() {
 
 // Add a column
 function addC() {
-
+    
 }
 
 // Remove a row
