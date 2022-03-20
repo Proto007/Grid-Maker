@@ -2,10 +2,16 @@
 let numRows = 0;
 let numCols = 0;
 let colorSelected; 
+let gridTable;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row");
+    //Innitialize a gridTable by matching it with its element id "grid" in index.html
+    gridTable=document.getElementById("grid");
+    //Insert a new cell and a new row in index 0
+    gridTable.insertRow(0).insertCell(0);
+    //Increment numRows by 1 to keep track of the total rows
+    numRows++;
 }
 
 // Add a column
