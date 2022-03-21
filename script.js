@@ -108,15 +108,12 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){    
-    //Keep track of initial number of rows
-    let rows=numRows;
-    //Iterate through the number of rows and remove a row for every iteration
-    for(let i=0;i<rows;i++){
-        removeR();
+    //Initialize gridCells as elements with tag name "td"(all cells)
+    gridCells=document.getElementsByTagName("td");
+    for(let i=0;i<gridCells.length;i++){
+        //Change background color of ith cell to empty
+        gridCells[i].style.backgroundColor="";
     }
-    //Set numCols and numRows equal to 0 (reset)
-    numCols=0;
-    numRows=0;
 }
 
 //Adds onclick events to all the cells
