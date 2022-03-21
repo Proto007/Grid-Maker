@@ -21,6 +21,8 @@ function addR() {
     }
     //Increment numRows by 1 to keep track of the total rows
     numRows++;
+    //Add onclick events to the newly added cells
+    addOnCLickCell();
 }
 
 // Add a column
@@ -38,6 +40,8 @@ function addC() {
     }
     //Increment numCols by 1 to keep track of the total columns
     numCols++;
+    //Add onclick events to the newly added cells
+    addOnCLickCell();
 }
 
 // Remove a row
@@ -113,4 +117,15 @@ function clearAll(){
     //Set numCols and numRows equal to 0 (reset)
     numCols=0;
     numRows=0;
+}
+
+//Adds onclick events to all the cells
+function addOnCLickCell(){
+    //Initialize gridCells as elements with tag name "td"(all cells)
+    gridCells=document.getElementsByTagName("td");
+    //Loop through gridCells and assign onclick event
+    for(let i=0;i<gridCells.length;i++){
+        //Change background color of ith cell to colorSelected when ith cell is clicked
+        gridCells[i].onclick=function(){gridCells[i].style.backgroundColor=colorSelected};
+    }
 }
