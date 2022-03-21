@@ -7,7 +7,7 @@ let gridCells;
 
 // Add a row
 function addR() {
-    //Innitialize gridTable by matching it with its element id "grid" in index.html
+    //Initialize gridTable by matching it with its element id "grid" in index.html
     gridTable=document.getElementById("grid");
     //Insert a new row in gridTable
     gridTable.insertRow(-1);
@@ -25,7 +25,7 @@ function addR() {
 
 // Add a column
 function addC() {
-    //Innitialize gridTable by matching it with its element id "grid" in index.html
+    //Initialize gridTable by matching it with its element id "grid" in index.html
     gridTable=document.getElementById("grid");
     //Insert a new row and increment numRows if there are no existing rows(numRows is 0)
     if(numRows===0){
@@ -42,7 +42,7 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    //Innitialize gridTable by matching it with its element id "grid" in index.html
+    //Initialize gridTable by matching it with its element id "grid" in index.html
     gridTable=document.getElementById("grid");
     //Delete the last row in the gridTable
     gridTable.deleteRow(-1);
@@ -58,7 +58,7 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    //Innitialize gridTable by matching it with its element id "grid" in index.html
+    //Initialize gridTable by matching it with its element id "grid" in index.html
     gridTable=document.getElementById("grid");
     //Delete the last cell of each row in the gridTable
     for(let i=0;i<numRows;i++){
@@ -81,7 +81,7 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    //Innitialize gridCells as elements with tag name "td"(all cells)
+    //Initialize gridCells as elements with tag name "td"(all cells)
     gridCells=document.getElementsByTagName("td");
     //Iterate through all cells in gridCells
     for(let i=0;i<gridCells.length;i++){
@@ -94,7 +94,7 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    //Innitialize gridCells as elements with tag name "td"(all cells)
+    //Initialize gridCells as elements with tag name "td"(all cells)
     gridCells=document.getElementsByTagName("td");
     //Iterate through all cells in gridCells and assign backgroundColor
     for(let i=0;i<gridCells.length;i++){
@@ -103,6 +103,14 @@ function fillAll(){
 }
 
 // Clear all cells
-function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+function clearAll(){    
+    //Keep track of initial number of rows
+    let rows=numRows;
+    //Iterate through the number of rows and remove a row for every iteration
+    for(let i=0;i<rows;i++){
+        removeR();
+    }
+    //Set numCols and numRows equal to 0 (reset)
+    numCols=0;
+    numRows=0;
 }
