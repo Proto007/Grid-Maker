@@ -85,7 +85,7 @@ function fillU(){
     gridCells=document.getElementsByTagName("td");
     //Iterate through all cells in gridCells
     for(let i=0;i<gridCells.length;i++){
-        //Assign color to ith cell as colorSelected if ith cell has no color
+        //Assign backgroundColor to ith cell as colorSelected if ith cell has no color
         if(gridCells[i].style.backgroundColor===""){
             gridCells[i].style.backgroundColor=colorSelected;
         }
@@ -94,7 +94,12 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    //Innitialize gridCells as elements with tag name "td"(all cells)
+    gridCells=document.getElementsByTagName("td");
+    //Iterate through all cells in gridCells and assign backgroundColor
+    for(let i=0;i<gridCells.length;i++){
+        gridCells[i].style.backgroundColor=colorSelected;
+    }
 }
 
 // Clear all cells
