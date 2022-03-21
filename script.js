@@ -3,6 +3,7 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected; 
 let gridTable;
+let gridCells;
 
 // Add a row
 function addR() {
@@ -48,6 +49,10 @@ function removeR() {
     //Decrement numRows if numRows is greater than 0(there is atleast one row)
     if(numRows>0){
         numRows--;
+        //If numRows becomes 0 after the decrement, change numCols to 0 as well(reset grid)
+        if(numRows===0){
+            numCols=0;
+        }
     }
 }
 
@@ -62,18 +67,29 @@ function removeC() {
     //Decrement numCols if numCols is greater than 0(there is atleast one column)
     if(numCols>0){
         numCols--;
+        //If numCols becomes 0 after the decrement, change numRows to 0 as well(reset grid)
+        if(numCols===0){
+            numRows=0;
+        }
     }
 }
 
 // Set global variable for selected color
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
-    console.log(colorSelected);
 }
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    //Innitialize gridCells as elements with tag name "td"(all cells)
+    gridCells=document.getElementsByTagName("td");
+    //Iterate through all cells in gridCells
+    for(let i=0;i<gridCells.length;i++){
+        //Assign color to ith cell as colorSelected if ith cell has no color
+        if(gridCells[i].style.backgroundColor===""){
+            gridCells[i].style.backgroundColor=colorSelected;
+        }
+    }
 }
 
 // Fill all cells
